@@ -1,0 +1,446 @@
+@import (less) '../bower_components/brainless/src/brainless.less';
+@import (less) 'includes/fonts.less';
+@import (less) 'includes/prism.less';
+                            
+// variables: breakpoints
+// inspired by: http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/
+// ---------------------------
+@phone         : 30em;  // ≈ 480px
+@tablet        : 59em;  // ≈ 944px
+@desktop       : 64em;  // ≈ 1024px
+@wideDesktop   : 100em; // ≈ 1600px
+
+// variables   : colors non-semantic
+// ---------------------------
+@NAVY     : #001f3f;
+@BLUE     : rgb(32,189,240); //#0074d9;
+@AQUA     : @BLUE; 
+@TEAL     : #39cccc; 
+@OLIVE    : #3d9970; 
+@GREEN    : #2ecc40;
+@LIME     : #01ff70;
+@YELLOW   : #ffdc00;
+@ORANGE   : #ff851b;
+@RED      : #ff4136;
+@MAROON   : #85144b;
+@FUCHSIA  : #f012be;
+@PURPLE   : #b10dc9;
+@BLACK    : #111;
+@GRAY     : #aaa;
+@SLATE    : #303030;
+@SILVER   : #ddd;
+@SMOKE    : #f5f5f5;
+@WHITE    : #fff;
+@PAPER    : #fcfaf2;
+@NEWSPRINT: #f0ece8;
+@PEE      : #F4FD72;         // pick names you'll remember.
+
+// variables   : colors semantic
+// ---------------------------
+@highlight     : @PEE;
+@disabled      : @GRAY;
+@bodyColor     : @WHITE;
+@textColor     : @SLATE;
+@linkColor     : @BLUE;
+@bad           : @RED;
+@good          : @GREEN;
+@warning       : @ORANGE;
+
+// variables   : measurements
+// ---------------------------
+@baseUnit      : 1rem;      // base unit of measurement ≈ 16px
+@radius        : 2px;       // generic border radius. set to 0 to nullify.
+@columns       : 12;        // grid columns
+@gutter        : @baseUnit; // grid gutter
+
+// variables   : z-index
+// ---------------------------
+@zContent      : 1;
+@zUI           : 2;
+@zSystem       : 500;
+@zMeta         : 999999;
+
+// variables   : iconography - utf entities // TODO these are vars
+// ---------------------------
+@import (less) 'includes/_entities.less';
+
+// variables   : typography
+// ---------------------------
+@sans          : 'Raleway', sans serif;
+@serif         : 'Georgia', serif;
+@lineHeight    : 1.5;
+@fontSize      : @baseUnit * 1.5;
+
+// variables   : timing functions
+// ---------------------------
+@teleport      : cubic-bezier(1, 1, 0, 1);
+
+// variables   : reusable box shadow
+// ---------------------------
+@boxShadow     : 0px 0px 10px 5px rgba(0,0,0,0.1);
+
+// convenience classes
+// ---------------------------
+.centered{
+  #center .xy();
+}
+
+.block-centered{
+  margin: 0 auto;
+  text-align: center;
+}
+
+// basic scaffolding & reset
+// ---------------------------
+*,*:before,*:after{
+  box-sizing: border-box;
+}
+
+html{
+  -ms-text-size-adjust     : 100%;
+  -webkit-text-size-adjust : 100%;
+}
+
+body{
+  color                  : @textColor;
+  font-size              : @fontSize;
+  font-family            : @sans;
+  font-weight            : 500;
+  line-height            : @lineHeight;
+  margin                 : 0;
+  text-rendering         : optimizeLegibility;
+  -webkit-font-smoothing : antialiased;
+}
+
+ol,ul{
+  margin: 0;
+}
+
+// macro structures
+//------------------------------------
+section{
+  > article{
+    #section > .neutral();
+    &.minor{ > div { min-height: 50vh; } }
+    > div{
+      #util > .clearfix();
+      min-height: 100vh;
+    }
+  }
+}
+
+section > article > div{
+  height: 100%;
+  position: relative;
+  padding: @baseUnit * 3 @baseUnit * 2;
+  width: 80%;
+  margin: 0 auto; 
+}
+
+
+
+// typography
+//------------------------------------
+h1,h2,h3,h4,h5,h6{
+  &.major{
+    font-size: @baseUnit * 7;
+  }
+  mark{
+    color: @AQUA;
+    background-color: transparent;
+  }
+}
+h1{
+  font-size: @baseUnit * 5;
+  width: 100%;
+}
+h2{
+  font-size: @baseUnit * 4;
+  width: 60%;
+  span{
+    font-size: 0.75em;
+  }
+}
+h3{
+  font-size: @baseUnit * 3;
+}
+h4{
+  font-size: @baseUnit * 2;
+  strong{
+    color: @AQUA;
+    display: block;
+  }
+}
+blockquote{
+  font-family: @serif;
+  font-size: @baseUnit * 4;
+  cite{
+    display: block;
+    text-align: right;
+    font-size: 0.5em;
+  }
+}
+h1,h2{
+  text-align: center;
+  #center > .xy();
+  span{
+    display: block;
+  }
+}
+h3,h4{
+  max-width: 75%
+}
+p{
+  max-width: 60%;
+}
+
+pre{
+  &.minor{
+    background-color: transparent;
+    padding: 0;
+    margin: 0
+  }
+  &.major{
+    padding: 0;
+    background-color: transparent;
+    font-size: 4rem;
+    overflow: hidden;
+  }
+}
+
+// elements : links
+//------------------------------------
+a{
+  color           : @linkColor;
+  text-decoration : none;
+  &:hover{
+    color: darken(@linkColor,10%);
+  }
+}
+
+// elements : icons
+//------------------------------------
+i.info{
+  color: @BLUE;
+}
+
+// lists
+// ---------------------------
+dl{
+  #center > .y();
+  font-family: @serif;
+  font-size: @baseUnit * 3;
+  dd{
+    font-style: italic;
+    color: @AQUA;
+  }
+}
+
+// elements : tables
+//------------------------------------
+table{
+  text-align: left;
+  width: 50%;
+  float: left;
+  th,tr.major td{
+    padding: @baseUnit 0;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+}
+
+// ui: icon elements
+// ---------------------------
+.icon{
+  &:before{
+    display: block;
+    font-family: monospace;
+    line-height: 1;
+  }
+}
+
+// ui: buttons
+//------------------------------------
+a.button, 
+button, 
+input[type='button'], 
+input[type='submit']
+{
+  #transition > .property(background-color);
+  #transition > .duration(0.2s);
+
+  background-color : @BLUE;
+  border           : 1px solid transparent;
+  border-radius    : @radius;
+  color            : @WHITE;
+  cursor           : pointer;
+  display          : inline-block;
+  font             : bold 0.875rem/1.8em @sans;
+  outline          : none;
+  padding          : @baseUnit * 0.15 0.625rem;
+  letter-spacing   : 0.02rem;
+  -webkit-font-smoothing : antialiased;
+
+  &:hover,.hover{
+    background-color : darken(@BLUE,10%);
+  }
+  &:active{
+    background-color : darken(@BLUE,20%);
+  }
+}
+
+// ui: buttons disabled state
+//------------------------------------
+.button, 
+button, 
+input[type='button'], 
+input[type='submit']{
+  &.disabled,
+  &[disabled],
+  &[data-state='disabled'],
+  &[data-state='disabled']{
+    background-color : @disabled;
+    color            : @SMOKE;
+    cursor           : default;
+    &:hover{
+      background-color : @disabled;
+      color            : @SMOKE;
+      cursor           : default;
+    }
+  }
+}
+
+// ui: buttons major variation
+//------------------------------------
+.button, 
+button, 
+input[type='button'], 
+input[type='submit']{
+  &.major{
+    display: inline-block;
+    font-size: @baseUnit * 2;
+    margin: 32px 0px;
+  }
+}
+
+// ui: buttons minor variation
+//------------------------------------
+.button, 
+button, 
+input[type='button'], 
+input[type='submit']{
+  &.minor{
+    background-color: white;
+    border: 1px solid @SILVER;
+    color: @textColor;
+    &:hover,.hover{
+      background-color: @PAPER;
+    }
+  }
+}
+
+#section{
+  .neutral(){
+    background-color: @WHITE; 
+    color: @SLATE;
+    span{
+      color: @AQUA;
+    }
+  }
+  .emphasis(){
+    background-color: @RED;
+    color: @WHITE;
+    em{
+      font-style: normal;
+      color: @SLATE;
+    }
+  }
+  .info(){
+    background-color: @BLUE;
+    color: @WHITE;
+  }
+  .bold{
+    background-color: @YELLOW;
+    color: @SLATE;
+    text-align: center;
+    > div{
+      margin: 0 auto;
+      *{
+        max-width: 100% !important;
+      }
+    }
+  }
+  .digress{
+    background-color: @SLATE;
+    color: @NEWSPRINT;
+    .invisible{
+      color: @SLATE !important;
+    }
+    code,a{
+      color: @PEE;
+    }
+  }
+  .image(@url){
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(@url);
+  }
+}
+
+// sections : color schemes
+//------------------------------------
+article.emphasis{
+  #section > .emphasis();
+}
+article.neutral{
+  #section > .neutral();
+}
+article.info{
+  #section > .info();
+}
+article.bold{
+  #section > .bold();
+}
+article.digress{
+  #section > .digress();
+}
+
+// section : setup
+//------------------------------------
+section.setup article{
+  background-color: @SLATE;
+  color: @YELLOW;
+  //font-family: monospace;
+  font-weight: normal;
+  a{
+    color: white;
+    font-weight: bold;
+  }
+}
+
+article.spiderman{
+  #section > .image('../img/spider-man.png');
+}
+
+article.radio{
+  #section > .image('../img/radio.png');
+}
+
+article.beyonce{
+  #section > .image('../img/beyonce.jpeg');
+}
+
+article.origin > div{
+  > * {
+    width: 75%;
+  }
+}
+
+article.box-model > div{
+  #section > .image('../img/box-model.gif');
+  background-size: contain;
+}
+
+article.big-idea{
+  font-size: @baseUnit * 10;
+}

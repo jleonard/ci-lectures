@@ -1,0 +1,10 @@
+<% function excerpt(content) {
+  if(content.indexOf("<!-- more -->") == -1) return content;
+  else return content.split("<!-- more -->")[0]; 
+} %>
+
+<% for(var slug in public.sections._data){ var post = public.sections._data[slug]; %>
+  <section class='<%- slug %>'>
+    <%- excerpt(partial("sections/" + slug)) %>
+  </section>
+<% }; %>

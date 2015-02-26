@@ -1,0 +1,20 @@
+{
+  "name": "html-one-pager",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jleonard/html-one-pager",
+  "authors": [
+    "jleonard <thejohnleonard@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "brainless": "~3.1.0"
+  }
+}

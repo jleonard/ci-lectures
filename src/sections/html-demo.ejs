@@ -1,0 +1,281 @@
+<article class='minor'><div>
+  <h2><mark>&lt;</mark>demo<mark>&gt;</mark></h2>
+</div></article>
+
+<article class='digress'><div>
+  <h3>Start up a server</h3>
+  <p>In a SublimeText document, type <code>_server</code> and hit Tab. 
+    <br/>
+    Copy/Paste <code>python -m SimpleHTTPServer 8080</code> into a Terminal window and hit Enter.
+  </p>
+  <p>Visit <a href='http://localhost:8080'><code>http://localhost:8080</code></a> in your browser to see your directory being served over http, the file transfer protocol used on the web.</p>
+  <h4>Why use a server?</h4>
+  <p>It's a more accurate representation of how users will interact with your site when it is on the web.</p>
+  <h4>Helpful Terminal Commands</h4>
+  <ul>
+    <li><code>pwd</code> <em>present working directory</em> Tells you what folder the Terminal is currently working in.</li>
+    <li><code>cd</code> <em>change directory</em> Navigate folders on your computer by typing cd and then dragging/dropping a folder from the Finder into Terminal.</li>
+    <li><code>ls</code> <em>list the files/folders</em> Lists everything in your current working directory.</li>
+  </ul>
+</div></article>
+
+<article class='minor'><div>
+  <h3>Create a file in your project template called <mark>index.html</mark></h3>
+  <mark>_document</mark>
+<pre class='language-markup'><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article class='minor'><div>
+  <mark>_head</mark>
+<pre class='language-markup'><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;page&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="viewport" content="width=device-width"&gt;
+    &lt;/head&gt;
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article class='minor'><div>
+  <mark>_body</mark>
+<pre class='language-markup'><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;page&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="viewport" content="width=device-width"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      
+    &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article class='minor'><div>
+  <mark>_tag</mark>
+<pre class='language-markup'><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;page&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="viewport" content="width=device-width"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;p attribute='value'&gt;
+        content
+      &lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article><div>
+  <h3>Anatomy of an html tag</h3>
+<pre class='language-markup major'><code>
+&lt;h1&gt;Hello World&lt;/h1&gt;
+</code></pre>
+
+  <h4>Tags can nest inside other tags.</h4>
+<pre class='language-markup major'><code>
+&lt;h1&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/h1&gt;
+</code></pre>
+
+
+  <h4>Attributes</h4>
+  <p>Tags may contain additional information called <strong>attributes</strong>. Each attribute has a name and value.</p>
+<pre class='language-markup major'><code>
+&lt;tagname attribute='value'&gt;
+</code></pre>
+<h5>Attribute Examples</h5>
+<pre class='language-markup'><code>
+  &lt;a href='http://google.com'&gt;A Link to Google&lt;/a&gt;
+  &lt;img src='http://placekitten.com/200/300'&gt;
+</code></pre>
+</div></article>
+
+
+
+<article class='digress minor'><div>
+  <h2>Chrome DevTools <span>option + command + i</span></h2>
+</div></article>
+
+<article class='digress minor'><div><code class='invisible'>
+  var scripts = document.querySelectorAll('link');
+  Array.prototype.forEach.call(scripts, function(el, i){
+  console.log(el);
+    el.innerHTML = '';
+    el.setAttribute('href','');
+  });
+
+  var style = document.querySelectorAll('[style]');
+  Array.prototype.forEach.call(style, function(el, i){
+    el.setAttribute('style','');
+  });
+</code></div></article>
+
+<article class='emphasis'><div>
+  <h2>There are very few html tags that support user interaction. Even today, most tags exist for document structure.</h2>   
+</div></article>
+
+<article class='info'><div>
+  <h2>Complex UI components modify the available html structural tags with css and javascript. <em>More on that next week</em></h2>   
+</div></article>
+
+<article><div>
+  <h3>Common html tags</h3>
+  <!-- text table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Text tags</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;h1&gt;&lt;/h1&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>heading 1</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;h2&gt;&lt;/h2&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>heading 2</a></td>
+      </tr>
+      <tr>
+        <td>...</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;h6&gt;&lt;/h6&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>heading 6</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;p&gt;&lt;/p&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p'>paragraph</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote'>quoting text</a></td>
+      </tr>
+      <tr class='major'>
+        <td>Text modifiers</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;sup&gt;&lt;/sup&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup'>superscript</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;sub&gt;&lt;/sub&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub'>subscript</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;em&gt;&lt;/em&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em'>emphasis (italic)</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;strong&gt;&lt;/strong&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong'>emphasis (bold)</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;mark&gt;&lt;/mark&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark'>highlight part of a text</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+    <!-- element table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Lists</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul'>unordered lists</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;ol&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ol&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol'>ordered lists</a></td>
+      </tr>
+
+      <tr class='major'>
+        <td>Media</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;img/&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img'>image</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;audio src="cat.mp3" type="audio/mp3"&gt;
+&lt;/audio&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio'>audio</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;video&gt;...&lt;/video&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video'>video</a></td>
+      </tr>
+      
+      <tr class='major'>
+        <td>Document Structure</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;nav&gt;&lt;/nav&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;header&gt;&lt;/header&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;main&gt;&lt;/main&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;footer&gt;&lt;/footer&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;section&gt;&lt;/section&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;article&gt;&lt;/article&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;aside&gt;&lt;/aside&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside'>view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class='language-markup minor'><code>&lt;div&gt;&lt;/div&gt;</code></pre></td>
+        <td><a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div'>view docs</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class='block-centered'>
+    <a class='button major' href='http://www.w3schools.com/tags/'>plus many more</a>
+  </div>
+</div></article>
+
