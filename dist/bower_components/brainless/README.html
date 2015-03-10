@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crafting Interactions: Week 6</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    </head>
+    <body>
+      <main>
+        <h1>Brainless</h1><h2>A collection of .less utilities and conveniences.</h2><blockquote>
+<p>Brainless provides you with a number of grouped mixins to accelerate rapid .css development.  </p>
+</blockquote>
+<h2>Design philosophy</h2><p>This is not intended to be a catch-call framework for css development. Instead there are a small number of <a href="http://lesscss.org/features/#features-overview-feature-namespaces-and-accessors">namespaced</a> mixin collections that provide basic conveniences.</p>
+<h2>Usage</h2><p>Install via <a href="http://bower.io/">bower</a></p>
+<pre><code class="language-bash">bower install brainless
+</code></pre>
+<p>Import into your .less file</p>
+<pre><code class="language-less">@import (less) &#39;bower_components/brainless/src/brainless.less&#39;
+</code></pre>
+<h2>What&#39;s Included</h2><blockquote>
+<p>The mixins are organized into 9 major groups</p>
+</blockquote>
+<ul>
+<li><strong><a href="#animation">#animation</a></strong> : shorthands for managing keyframe animations  </li>
+<li><strong><a href="#center">#center</a></strong> <em>_center.less</em> transform-based centering conveniences</li>
+<li><strong>#container</strong> <em>_container.less</em> easily create horizontal and vertical layout containers.</li>
+<li><strong>#flexbox</strong> <em>_flexbox.less</em> conveniences for flexible box model layouts</li>
+<li><strong><a href="#position">#relative #absolute #fixed &amp; #sticky</a></strong> <em>_position.less</em> positioning conveniences  </li>
+<li><strong><a href="#reset">#reset</a></strong> <em>_reset.less</em> quickly set a css property back to its default value.  </li>
+<li><strong>#transform</strong> <em>_transform.less</em> conveniences to manage complex css transforms  </li>
+<li><strong><a href="#transition">#transition</a></strong> <em>_transition.less</em> conveniences to manage css transitions  </li>
+<li><strong><a href="#util">#util</a></strong> <em>_util.less</em> common css utility mixins for element sizing and clearfixing  </li>
+</ul>
+<pre><code class="language-bash">src/
+├── _animation.less
+├── _center.less
+├── _container.less
+├── _flexbox.less
+├── _position.less
+├── _reset.less
+├── _transform.less
+├── _transition.less
+├── _util.less
+└── brainless.less
+</code></pre>
+<h3>Animation</h3><p><strong>Examples</strong>  </p>
+<pre><code class="language-less">  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    } 
+  }
+
+  .box{
+    #animation &gt; .name(pulse);
+    #animation &gt; .easing(ease-in);
+    #animation &gt; .duration(2s);
+    #animation &gt; .delay(0.5s);
+    #animation &gt; .loop();
+    &amp;:hover{
+      #animation &gt; .pause();
+    }
+  }
+</code></pre>
+<h3>Center</h3><p><strong>Examples</strong>  </p>
+<pre><code class="language-less">  .box-x{
+    #center &gt; .x();
+  }
+
+  .box-y{
+    #center &gt; .y();
+  }
+
+  .box-xy{
+    #center &gt; .xy();
+  }
+
+  // elements are positioned absolute by default
+  // optionally, pass in a position attribute
+  .box-fixed{
+    #center &gt; .xy(fixed);
+  }
+</code></pre>
+<h3>Position</h3><p><strong>Examples</strong> </p>
+<pre><code class="language-less">
+  .box{
+    #absolute &gt; .top-left();
+  }
+
+  // css output
+  .box{ 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+  }
+
+  .box{
+    #absolute &gt; .top-left(50%,50%);
+  }
+
+  // css output
+  .box{ 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+  }
+
+  .box{
+    #fixed &gt; .top(20px);
+  }
+
+  // css output
+  .box{
+    position: fixed;
+    top: 20px;
+  }
+</code></pre>
+<h3>Reset</h3><p><strong>Examples</strong>  </p>
+<pre><code class="language-less">// First, a position mixin
+.box{
+  #absolute &gt; .top-left();
+}
+// Now, a reset for top and left before repositioning the element
+.box.bottom{
+  #reset &gt; ._(top);
+  #reset &gt; ._(left);
+  #absolute &gt; .bottom-right();
+}
+
+// css output
+.box{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.box.bottom{
+  top: auto;
+  left: auto;
+  bottom: 0;
+  right: 0;
+}
+</code></pre>
+<h3>Transition</h3><p><strong>Examples</strong></p>
+<pre><code class="language-less">// basic example
+.box{
+  #transition &gt; .property(opacity);
+  #transtion &gt; .duration(1s);
+  #transtion &gt; .delay(0.5s);
+}
+
+// supports multiple properties
+.multiples{
+  #transition &gt; .property(opacity);
+  #transtion &gt; .duration(2s);
+  #transtion &gt; .delay(5s);
+
+  #transition &gt; .property(background-color);
+  #transtion &gt; .duration(1s);
+  #transtion &gt; .delay(0.5s);
+}
+
+// css output
+.multiples{
+  -webkit-transition-property: opacity, background-color;
+  transition-property: opacity, background-color;
+  -webkit-transition-delay: 2s, 1s;
+  transition-delay: 2s, 1s;
+  -webkit-transition-duration: 5s, 0.5s;
+  transition-duration: 5s, 0.5s;
+}
+</code></pre>
+<h3>Util</h3><p><strong>Examples</strong>  </p>
+<pre><code class="language-less">// classic clearfix
+.box{
+  #util &gt; .clearfix();
+}
+
+// sizing convenience
+.size{
+  #util &gt; .size(200px,120px);
+}
+
+//css output
+.size{
+  width: 200px;
+  height: 120px;
+}
+
+.square{
+  #util &gt; .square(200px);
+}
+
+//css output
+.square{
+  width: 200px;
+  height: 200px;
+}
+</code></pre>
+      </main>
+      <script title="This script does x" src="js/prism.js"></script>
+      
+  </body>
+</html>

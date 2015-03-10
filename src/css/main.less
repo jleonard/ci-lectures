@@ -116,6 +116,16 @@ ol,ul{
   margin: 0;
 }
 
+// kruger
+//------------------------------------
+.kruger{
+  background-color: @RED;
+  padding: @baseUnit * 0.5;
+  color: @SLATE;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 // macro structures
 //------------------------------------
 section{
@@ -350,7 +360,7 @@ input[type='submit']{
   .emphasis(){
     background-color: @RED;
     color: @WHITE;
-    em{
+    em,mark,i{
       font-style: normal;
       color: @SLATE;
     }
@@ -405,19 +415,6 @@ article.digress{
   #section > .digress();
 }
 
-// section : setup
-//------------------------------------
-section.setup article{
-  background-color: @SLATE;
-  color: @YELLOW;
-  //font-family: monospace;
-  font-weight: normal;
-  a{
-    color: white;
-    font-weight: bold;
-  }
-}
-
 article.spiderman{
   #section > .image('../img/spider-man.png');
 }
@@ -443,4 +440,16 @@ article.box-model > div{
 
 article.big-idea{
   font-size: @baseUnit * 10;
+}
+
+article.radio-example{
+  color: @SLATE;
+  font-weight: bold;
+  input{
+    margin-left: @baseUnit;
+  }
+}
+
+article.worldbuilding{
+  #section > .image('../img/worldbuilding.jpg');
 }

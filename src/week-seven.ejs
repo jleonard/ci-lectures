@@ -1,0 +1,28 @@
+<% function excerpt(content) {
+  if(content.indexOf("<!-- more -->") == -1) return content;
+  else return content.split("<!-- more -->")[0]; 
+} %>
+
+<ol>
+  <li>setup</li>
+  <li>recap</li>
+  <li>why refresh</li>
+  <li>css refresh</li>
+  <li>how web layouts work. how css sees html</li>
+  <li>revisit the box model</li>
+  <li>css selectors: lecture/demo</li>
+  <li>css selectors: inheritance demo</li>
+  <li>css selectors: specificity demo with people</li>
+  <li>css selectors lab. hello world page.</li>
+  <li>media queries -- need snippet?</li>
+  <li>responsive grid example</li>
+  <li>responsive grid lab. make this grid. test on phone.</li>
+  <li>intro bootstrap -- need snippets?</li>
+  <li>code along demo. build a page with bootstrap.</li>
+</ol>
+
+<% for(var slug in public.sections_wk7._data){ var post = public.sections_wk7._data[slug]; %>
+  <section class='<%- slug %>'>
+    <%- excerpt(partial("sections_wk7/" + slug)) %>
+  </section>
+<% }; %>

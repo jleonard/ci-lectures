@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crafting Interactions: Week 6</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    </head>
+    <body>
+      <main>
+        <article class="bold minor"><div>
+  <h2 class="major">css = style</h2>
+</div></article>
+
+<article class="bold minor"><div>
+  <p>css is where we apply color, typography, page composition and many other style properties. 
+  <br><br>
+  css is where most responsive design coding happens.
+  </p>
+</div></article>
+
+<article class="info"><div>
+  <h2>css works by selecting elements on the html page and applying rules to them</h2>
+</div></article>
+
+<article><div>
+  <h3>Anatomy of a css rule</h3>
+  <mark>_rule</mark> 
+<pre class="language-css major"><code>
+  selector{
+    property : value;
+  }
+</code></pre>
+
+  <h4>Examples</h4>
+<pre class="language-css"><code>
+  /* select every paragraph element and make the text red. */
+  p{
+    color : red;
+  }
+
+  /* select p's with a class attribute equal to 'major' 
+     and make the text green with a red background. */
+  p.major{
+    color : green;
+    background-color: red;
+  }
+
+  /* select only p's inside a nav with class = 'major' 
+     and make the text blue. */
+  nav p.major{
+    color : blue;
+  }
+
+  /* select only p's inside a footer nav with class = 'major' 
+     and make the text white. */
+  footer nav p.major{
+    color : white;
+  }
+</code></pre>
+
+</div></article>
+
+<article class="minor"><div>
+  <h3>The CSS Box Model</h3>
+  <p style="width:60%">CSS considers all elements to be boxes. When we say 'Box Model' we're talking about all of the components that make up the box.</p>
+  <mark>_box_model</mark>
+</div></article>
+
+<article class="box-model"><div>
+
+</div></article>
+
+
+<article class="emphasis minor"><div>
+  <h2>Your first <em><i class="fa fa-bomb"></i></em></h2>
+</div></article>
+
+<article><div>
+  <h3><i class="fa fa-warning"></i> CSS does a terrible default calculation of the box model.</h3>
+  <h4>By default, padding and borders are added to the width and height to compute the final dimensions of the box.</h4>
+
+  <h5>Fortunately there's a fix that tells css to assume that border and padding are already part of the box's dimensions.</h5>
+  <mark>_box_sizing</mark>
+  <pre class="language-css"><code>*,*:before,*:after{
+  box-sizing: border-box;
+}</code></pre>
+  
+  <div class="block-centered">
+    <img src="img/box-sizing-fix.png" alt="">
+  </div>
+
+</div></article>
+      </main>
+      <script title="This script does x" src="js/prism.js"></script>
+      
+  </body>
+</html>

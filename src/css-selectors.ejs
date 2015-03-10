@@ -1,0 +1,176 @@
+<section class='css-selectors'>
+
+<!--
+  <article><div>
+    <h3>CSS provides a syntax for </h3>
+  <h4>Example of a css ruleset</h4>
+  <pre class='major language-css'><code>
+selector{
+  property: value;
+}
+</code></pre>
+  </div></article>
+-->
+
+  <article><div>
+    <h3><span>CSS selectors</span> target elements on an html page for styling.</h3>
+    <h4>The Element Selector</h4>
+    <p>Selects elements based on their html tag names.</p>
+<pre class='language-markup'><code>
+  &lt;h1&gt;...&lt;/h1&gt;
+  &lt;div&gt;...&lt;/div&gt;
+</code></pre>
+
+<pre class='language-css'><code>
+  /* selects all h1 elements */
+  h1{
+    ...
+  }
+
+  /* selects all div elements */
+  div{
+    ...
+  }
+</code></pre>
+
+  <h4>The Class Selector</h4>
+  <p>Matches elements based on their <em>class(es)</em>. Unlike html tags, there are no pre-defined classes in css.</p>
+  <p>The class selector syntax is a period before the class name.</p>
+<pre class='major language-css'><code>
+.example{
+  color: red;
+}
+</code></pre>
+
+<pre class='language-markup'><code>
+  &lt;div class='major'&gt;...&lt;/div&gt;
+  &lt;div class='minor'&gt;...&lt;/div&gt;
+</code></pre>
+<pre class='language-css'><code>
+  /* selects all elements with a 'major' class */
+  .major{
+    background-color: #c30;
+  }
+
+  /* selects all elements with a 'minor' class */
+  .minor{
+    background-color: #f90;
+  }
+</code></pre>
+  
+  <p>An html element can have multiple classes. This is called the <em>class list</em>. The syntax for writing a selector that applies to multiple classes is to join them with periods and no spaces.</p>
+<pre class='language-markup'><code>
+  &lt;div class='major button'&gt;...&lt;/div&gt;
+</code></pre>
+<pre class='language-css'><code>
+  /* selects all elements with a 'major' AND a 'button' class */
+  .major.button{
+    ...
+  }
+</code></pre>
+
+  <h4>CSS Selector Specificity</h4>
+  <p>The <em>cascade</em> in cascading style sheets refers to the way css priorizes rules.</p>
+
+  <p>In the example below every css selector applies to the div.</p>
+  <ol>
+    <li>The background-color in the <code>.major.button</code> rule-set is applied to the element because it is the most specific.</li>
+    <li>The <code>div</code> selector is the least specific. Class selectors are more specfic than element selectors.</li>
+    <li>The <code>.button</code> and <code>.major</code> selectors are equally specific. In this example <code>.major</code> takes priority over <code>.button</code> because it was declared last.</li>
+  </ol>
+<pre class='language-markup'><code>
+  &lt;div class='major button'&gt;...&lt;/div&gt;
+</code></pre>
+<pre class='language-css'><code>
+  div{
+    background-color: black;
+  }
+
+  .button{
+    background-color: red;
+  }
+
+  .major{
+    background-color: green;
+  }
+
+  .major.button{
+    background-color: orange;
+  }
+</code></pre>
+
+  <h4>Selecting Nested Elements</h4>
+  <p>The syntax for selecting elements nested inside other elements is to separate each selector with a space</p>
+<pre class='language-markup'><code>
+  &lt;header&gt;
+    &lt;div&gt;...&lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;footer&gt;
+    &lt;section&gt;
+      &lt;div&gt;...&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/footer&gt;
+</code></pre>
+
+<pre class='language-css'><code>
+  /* selects all divs in the header tag */
+  header div{
+    ...
+  }
+
+  /* selects all divs nested inside section tags nested inside the footer tag */
+  footer section div{
+    ...
+  }
+</code></pre>
+
+  <p>Nesting selectors aren't limited to tag names. Class selectors can be intermingled at any step.</p>
+<pre class='language-markup'><code>
+  &lt;footer&gt;
+    &lt;section class='major'&gt;
+      &lt;div&gt;...&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/footer&gt;
+</code></pre>
+<pre class='language-css'><code>
+  /* selects all divs in the header tag */
+  footer .major div{
+    ...
+  }
+</code></pre>
+
+  <h5>Nesting Specificity</h5>
+  <p>In the example below, all of the rulesets apply to the <code>div</code> element.</p>
+  <ol>
+    <li>The element selector, <code>div</code> is the least specific.</li>
+    <li>The <code>footer div</code> selector is more specific. Its rules for <code>font-size</code> and <code>background-color</code> would be prioritized over the <code>div</code> selector.</li>
+    <li>The <code>footer section div</code> selector is the most specific. Its rule for <code>background-color</code> would be applied to the element. Since there's no <code>font-size</code> rule in this ruleset, the <code>font-size</code> declared in <code>footer div</code> would be applied to the element.</li>
+  </ol>
+<pre class='language-markup'><code>
+  &lt;footer&gt;
+    &lt;section&gt;
+      &lt;div&gt;...&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/footer&gt;
+</code></pre>
+
+<pre class='language-css'><code>
+  div{
+    font-size: 10px;
+    background-color: red;
+  }
+
+  footer div{
+    font-size: 12px;
+    background-color: orange;
+  }
+
+  footer section div{
+    background-color: black;
+  }
+</code></pre>
+
+  </div></article>
+
+</section>

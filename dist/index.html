@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crafting Interactions: Week 6</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    </head>
+    <body>
+      <main>
+        <section class="setup">
+    <article class="digress">
+  <div>
+    <h3>Getting setup</h3>
+
+    <ol>
+      <li>Download <a target="_blank" href="http://www.sublimetext.com/">SublimeText.</a></li>
+      <li>Download today's <a target="_blank" href="https://github.com/jleonard/ci-template/archive/master.zip">project template</a> from the <a href="https://github.com/jleonard/ci-template">github page.</a></li>
+      <li>Install <a target="_blank" href="http://www.google.com/chrome">Chrome</a> if you don't have it already</li>
+      <li>Launch your Terminal app from <code>Applications > Utilities > Terminal</code></li>
+      <li>Install <a target="_blank" href="https://packagecontrol.io/installation">Package Control</a> for SublimeText * We'll walk through this together.</li>
+      <li>Inside SublimeText go to <code>Sublime Text > Preferences > Package Control > Package Control : Install Package</code> and install the <a target="_blank" href="http://jleonard.github.io/sublime-text-2-front-end/">Front End Snippets</a> Package. * We'll walk through this together.</li>
+    </ol>
+    
+  </div>
+
+</article>
+
+<article class="digress">
+  <div>
+    <h3>Using the Front End Snippets package</h3>
+    <p>You've just installed a library of snippets (aka: macros, shortcuts etc.) into Sublime Text. The snippet library contains code examples for common html, css and javascript tasks. Snippets can be used by typing a keyword and hitting the tab key. For example typing <mark>_tag</mark> and hitting Tab will print out a generic html tag example.</p>
+
+    <p>Snippets you can use in this lecture are highlighted with the following convention:<br><mark>_html</mark></p>
+    <a class="button" href="http://jleonard.github.io/sublime-text-2-front-end/">Read the Docs</a>
+    
+  </div>
+</article>
+
+  </section>
+
+  <section class="introduction">
+    <article>
+  <div>
+    <h1>Crafting Interactions <span>Week 6</span></h1>
+  </div>
+</article>
+
+<article class="emphasis"><div>
+  <h2>Knowing how a <em>user interface is constructed</em> will make you a better interaction designer.</h2>
+</div></article>
+
+<article><div>
+  <dl>
+    <dt>craft:</dt>
+    <dd>skill in planning, making or executing</dd>
+  </dl>
+</div></article>
+
+<article class="info"><div>
+  <h2>What are web interfaces made of?</h2>
+</div></article>
+
+<article class="info"><div>
+  <h2>content + structure + style + action</h2>
+</div></article>
+
+<article><div>
+  <h2>html + css + js <span>structure + style + action</span></h2>
+</div></article>
+
+
+
+
+
+  </section>
+
+  <section class="html">
+    <article class="bold minor"><div>
+  <h2 class="major">html = structure</h2>
+</div></article>
+
+<article class="bold minor"><div>
+  <p>html is a markup language intended for formatting a document with context and structure.
+  <br><br>
+  html <strong>is not</strong> a programming language.
+  </p>
+</div></article>
+
+<article class="origin"><div>
+  <h3>html's origin story</h3>
+
+  <h4>
+    <strong>1989</strong> html and what we know as the web are invented at the European Laboratory for Particle Physics in Geneva, Switzerland.
+  </h4>
+ 
+  <p>
+    Tim Berners Lee works in the computing services section of CERN. He comes up with the idea to make scientific research documents discoverable across one global computer network <strong>&amp;</strong> enable 'hyper-links' to allow readers to jump between those documents. 
+  </p>
+
+  <p>
+    Tim discusses the ideas openly, people get interested in contributing to the project. A small but growing group in academia show interest in the project.
+  </p>
+
+  <h4>
+    <strong>1990 - 1993</strong> popularity grows in the academic community.
+  </h4>
+
+  <p>
+    Enthusiasts start making contributions. A small conference is held and a working group is established to provide a community and set some standards for the language. Aside from skunkworks projects at companies like Sun and HP, big business doesn't show much interest. 
+  </p>
+
+  <h4><strong>1994 - 1995</strong> chaos &amp; fragmentation</h4>
+
+  <p>Too many cooks in the kitchen. The language starts to become fragmented and inelegant.</p>
+
+  <p>Business interests take hold. In a grab for market share, browser makers like Netscape and Microsoft begin introducing proprietary html features. The World Wide Web Consortium (W3C) is founded as a governing body for standardized web technologies.</p> 
+
+  <h4><strong>1996</strong> unity &amp; standards</h4>
+
+  <p>Browser makers and the W3C come together to support a common standard for the language. Browser makers rollback some of their proprietary work. Netscape agrees to get rid of the &lt;blink&gt; tag if Internet Explorer drops the &lt;marquee&gt;.</p>
+
+</div></article>
+
+<article class="minor"><div>
+  <h2><mark>&lt;/</mark>history<mark>&gt;</mark></h2>
+</div></article>
+
+
+  </section>
+
+  <section class="html-demo">
+    <article class="minor"><div>
+  <h2><mark>&lt;</mark>demo<mark>&gt;</mark></h2>
+</div></article>
+
+<article class="digress"><div>
+  <h3>Start up a server</h3>
+  <p>In a SublimeText document, type <code>_server</code> and hit Tab. 
+    <br>
+    Copy/Paste <code>python -m SimpleHTTPServer 8080</code> into a Terminal window and hit Enter.
+  </p>
+  <p>Visit <a href="http://localhost:8080"><code>http://localhost:8080</code></a> in your browser to see your directory being served over http, the file transfer protocol used on the web.</p>
+  <h4>Why use a server?</h4>
+  <p>It's a more accurate representation of how users will interact with your site when it is on the web.</p>
+  <h4>Helpful Terminal Commands</h4>
+  <ul>
+    <li><code>pwd</code> <em>present working directory</em> Tells you what folder the Terminal is currently working in.</li>
+    <li><code>cd</code> <em>change directory</em> Navigate folders on your computer by typing cd and then dragging/dropping a folder from the Finder into Terminal.</li>
+    <li><code>ls</code> <em>list the files/folders</em> Lists everything in your current working directory.</li>
+  </ul>
+</div></article>
+
+<article class="minor"><div>
+  <h3>Create a file in your project template called <mark>index.html</mark></h3>
+  <mark>_document</mark>
+<pre class="language-markup"><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article class="minor"><div>
+  <mark>_head</mark>
+<pre class="language-markup"><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;page&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="viewport" content="width=device-width"&gt;
+    &lt;/head&gt;
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article class="minor"><div>
+  <mark>_body</mark>
+<pre class="language-markup"><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;page&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="viewport" content="width=device-width"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      
+    &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article class="minor"><div>
+  <mark>_tag</mark>
+<pre class="language-markup"><code>
+  &lt;!doctype html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+      &lt;title&gt;page&lt;/title&gt;
+      &lt;meta name="description" content=""&gt;
+      &lt;meta name="viewport" content="width=device-width"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;p attribute='value'&gt;
+        content
+      &lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre>
+</div></article>
+
+<article><div>
+  <h3>Anatomy of an html tag</h3>
+<pre class="language-markup major"><code>
+&lt;h1&gt;Hello World&lt;/h1&gt;
+</code></pre>
+
+  <h4>Tags can nest inside other tags.</h4>
+<pre class="language-markup major"><code>
+&lt;h1&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/h1&gt;
+</code></pre>
+
+
+  <h4>Attributes</h4>
+  <p>Tags may contain additional information called <strong>attributes</strong>. Each attribute has a name and value.</p>
+<pre class="language-markup major"><code>
+&lt;tagname attribute='value'&gt;
+</code></pre>
+<h5>Attribute Examples</h5>
+<pre class="language-markup"><code>
+  &lt;a href='http://google.com'&gt;A Link to Google&lt;/a&gt;
+  &lt;img src='http://placekitten.com/200/300'&gt;
+</code></pre>
+</div></article>
+
+
+
+<article class="digress minor"><div>
+  <h2>Chrome DevTools <span>option + command + i</span></h2>
+</div></article>
+
+<article class="digress minor"><div><code class="invisible">
+  var scripts = document.querySelectorAll('link');
+  Array.prototype.forEach.call(scripts, function(el, i){
+  console.log(el);
+    el.innerHTML = '';
+    el.setAttribute('href','');
+  });
+
+  var style = document.querySelectorAll('[style]');
+  Array.prototype.forEach.call(style, function(el, i){
+    el.setAttribute('style','');
+  });
+</code></div></article>
+
+<article class="emphasis"><div>
+  <h2>There are very few html tags that support user interaction. Even today, most tags exist for document structure.</h2>   
+</div></article>
+
+<article class="info"><div>
+  <h2>Complex UI components modify the available html structural tags with css and javascript. <em>More on that next week</em></h2>   
+</div></article>
+
+<article><div>
+  <h3>Common html tags</h3>
+  <!-- text table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Text tags</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;h1&gt;&lt;/h1&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading 1</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;h2&gt;&lt;/h2&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading 2</a></td>
+      </tr>
+      <tr>
+        <td>...</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;h6&gt;&lt;/h6&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading 6</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;p&gt;&lt;/p&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">paragraph</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">quoting text</a></td>
+      </tr>
+      <tr class="major">
+        <td>Text modifiers</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;sup&gt;&lt;/sup&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup">superscript</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;sub&gt;&lt;/sub&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub">subscript</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;em&gt;&lt;/em&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em">emphasis (italic)</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;strong&gt;&lt;/strong&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong">emphasis (bold)</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;mark&gt;&lt;/mark&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark">highlight part of a text</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+    <!-- element table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Lists</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul">unordered lists</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;ol&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ol&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol">ordered lists</a></td>
+      </tr>
+
+      <tr class="major">
+        <td>Media</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;img/&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">image</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;audio src="cat.mp3" type="audio/mp3"&gt;
+&lt;/audio&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">audio</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;video&gt;...&lt;/video&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">video</a></td>
+      </tr>
+      
+      <tr class="major">
+        <td>Document Structure</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;nav&gt;&lt;/nav&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;header&gt;&lt;/header&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;main&gt;&lt;/main&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;footer&gt;&lt;/footer&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;section&gt;&lt;/section&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;article&gt;&lt;/article&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;aside&gt;&lt;/aside&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">view docs</a></td>
+      </tr>
+      <tr>
+        <td><pre class="language-markup minor"><code>&lt;div&gt;&lt;/div&gt;</code></pre></td>
+        <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div">view docs</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="block-centered">
+    <a class="button major" href="http://www.w3schools.com/tags/">plus many more</a>
+  </div>
+</div></article>
+
+
+  </section>
+
+  <section class="css">
+    <article class="bold minor"><div>
+  <h2 class="major">css = style</h2>
+</div></article>
+
+<article class="bold minor"><div>
+  <p>css is where we apply color, typography, page composition and many other style properties. 
+  <br><br>
+  css is where most responsive design coding happens.
+  </p>
+</div></article>
+
+<article class="info"><div>
+  <h2>css works by selecting elements on the html page and applying rules to them</h2>
+</div></article>
+
+<article><div>
+  <h3>Anatomy of a css rule</h3>
+  <mark>_rule</mark> 
+<pre class="language-css major"><code>
+  selector{
+    property : value;
+  }
+</code></pre>
+
+  <h4>Examples</h4>
+<pre class="language-css"><code>
+  /* select every paragraph element and make the text red. */
+  p{
+    color : red;
+  }
+
+  /* select p's with a class attribute equal to 'major' 
+     and make the text green with a red background. */
+  p.major{
+    color : green;
+    background-color: red;
+  }
+
+  /* select only p's inside a nav with class = 'major' 
+     and make the text blue. */
+  nav p.major{
+    color : blue;
+  }
+
+  /* select only p's inside a footer nav with class = 'major' 
+     and make the text white. */
+  footer nav p.major{
+    color : white;
+  }
+</code></pre>
+
+</div></article>
+
+<article class="minor"><div>
+  <h3>The CSS Box Model</h3>
+  <p style="width:60%">CSS considers all elements to be boxes. When we say 'Box Model' we're talking about all of the components that make up the box.</p>
+  <mark>_box_model</mark>
+</div></article>
+
+<article class="box-model"><div>
+
+</div></article>
+
+
+<article class="emphasis minor"><div>
+  <h2>Your first <em><i class="fa fa-bomb"></i></em></h2>
+</div></article>
+
+<article><div>
+  <h3><i class="fa fa-warning"></i> CSS does a terrible default calculation of the box model.</h3>
+  <h4>By default, padding and borders are added to the width and height to compute the final dimensions of the box.</h4>
+
+  <h5>Fortunately there's a fix that tells css to assume that border and padding are already part of the box's dimensions.</h5>
+  <mark>_box_sizing</mark>
+  <pre class="language-css"><code>*,*:before,*:after{
+  box-sizing: border-box;
+}</code></pre>
+  
+  <div class="block-centered">
+    <img src="img/box-sizing-fix.png" alt="">
+  </div>
+
+</div></article>
+
+  </section>
+
+  <section class="assignment">
+    <article class="digress"><div>
+  <h3>Lab</h3>
+  <p>Select one of the concepts you've worked on this semester and convert it to structured html. Apply as much css visual style as you can. Don't focus on adding interaction yet.</p>
+  
+  <h3>Assignment</h3>
+  <p>Continue your lab assignment if you haven't finished. If you've finished, get started on building a portfolio page for yourself.
+  <br><br>
+  Browse <a href="http://www.codecademy.com/en/tracks/web">codecademy's html + css course</a> to build on what you've learned in class.</p>
+  
+
+  <h5>Contact me with questions</h5>
+  <a class="button" href="mailto:thejohnleonard@gmail.com?subject=&quot;SVA: Crafting Interactions&quot;">thejohnleonard@gmail.com</a>
+  
+</div></article>
+  </section>
+
+  <section class="links">
+    <article class="digress"><div>
+  <ul>
+    <h4>Learning resources</h4>
+    <li><a href="http://www.codecademy.com/en/tracks/web">Codecademy</a></li>
+    <li><a href="http://css-tricks.com/">css tricks</a></li>
+    <li><a href="http://www.w3schools.com/">w3schools</a></li>
+    <li><a href="http://www.html5rocks.com/en/">html5 rocks</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/Learn/HTML">MDN (Mozilla Developer Network)</a></li>
+    <li><a href="http://www.codecademy.com/en/tracks/webhttp://webdesign.tutsplus.com/tutorials/the-best-way-to-learn-css-2--webdesign-11906">The best way to learn CSS</a></li>
+    <li><a href="http://htmldog.com/reference/cssproperties/">All CSS Properties</a></li>
+  </ul>
+
+  <ul>
+    <h4>Tools</h4>
+    <li><a href="http://validator.w3.org/#validate_by_input">w3c's markup validation service</a></li>
+    <li><a href="http://codepen.io/">codepen</a></li>
+    <li><a href="https://developer.chrome.com/devtools">Chrome DevTools</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN Color docs</a></li>
+    <li><a href="http://colorrrs.com/">Colorrrs</a></li>
+    <li><a href="http://hellohappy.org/beautiful-web-type/">Beautiful Web Type</a></li>
+    <li><a href="https://www.google.com/fonts/">Google Web Fonts</a></li>
+  </ul>
+</div></article>
+  </section>
+      </main>
+      <script title="This script does x" src="js/prism.js"></script>
+      
+  </body>
+</html>
