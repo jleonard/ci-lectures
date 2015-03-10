@@ -1,0 +1,108 @@
+<article><div>
+  <h1>The box model</h1>
+  <p>CSS sees every element on the page as having a rectangular box around it.</p>
+  <p>We refer to the properties used to style these boxes as being part of the <strong>box model</strong>.</p>
+</div></article>
+
+<article class='minor info'><div>
+  <p><i class="fa fa-info-circle"></i>
+  The snippet for sample box model css ruleset is <mark>_box_model</mark></p>
+</div></article>
+
+<article class='box-demo'><div>
+<h3>Let's go through step by step and apply the different box model properties to these 4 divs.</h3>
+  <div class='horizontal-box'>
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+  </div>
+
+<pre class='language-markup'><code>
+  &lt;div&gt;One&lt;/div&gt;
+  &lt;div&gt;Two&lt;/div&gt;
+  &lt;div&gt;Three&lt;/div&gt;
+  &lt;div&gt;Four&lt;/div&gt;
+</code></pre>
+
+</div></article>
+
+<article class='info minor'><div>
+<h3>Box Model Activity</h3>
+<p>Follow along by opening <code>ci-template/exercises/box-model/index.html</code> in your browser and editing the .html and .css file in <code>ci-template/exercises/box-model/</code>.
+</div></article>
+
+<article class='box-demo'><div>
+<h2><mark>1.</mark> Width and Height</h2>
+<p>First, we can define the dimensions of our 2D boxes.</p>
+<div class='horizontal-box dimensions'>
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+</div>
+<pre class='language-css'><code>
+  div{
+    width: 160px;
+    height: 160px;
+  }
+</code></pre>
+
+
+<h2><mark>2.</mark> Padding</h2>
+<p>The inner-most box property is <a href='http://www.w3schools.com/css/css_padding.asp'>padding.</a></p>
+<p>Padding is spacing applied to the <strong>inside</strong> of the box.</p>
+<p>Here's what our divs look like with 20 pixels of padding added to all 4 sides of the box.</p>
+<div class='horizontal-box dimensions padding'>
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+</div>
+<pre class='language-css'><code>
+  div{
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+  }
+</code></pre>
+
+<h2><mark>3.</mark> Borders</h2>
+<p>Surrounding the boundaries of the box is a <a href='http://www.w3schools.com/css/css_border.asp'>border.</a></p>
+<p>Borders can have thickness, color and style.</p>
+<p>Here's what our divs look like with a border added to all 4 sides of the box.</p>
+<div class='horizontal-box dimensions padding border'>
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+</div>
+<pre class='language-css'><code>
+  div{
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+    border: 10px solid black;
+  }
+</code></pre>
+
+<h2><mark>4.</mark> Margins</h2>
+<p>The outer-most property is the <a href='http://www.w3schools.com/css/css_margin.asp'>margin</a>.</p>
+<p>Margins are the force-fields around the box. Margins push other elements away &amp; push elements away from the edges of their containers. They are the opposite of padding.</p>
+<div class='horizontal-box dimensions padding border margin'>
+  <div>One</div>
+  <div>Two</div>
+  <div>Three</div>
+  <div>Four</div>
+</div>
+<pre class='language-css'><code>
+  div{
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+    border: 10px solid black;
+    margin: 20px;
+  }
+</code></pre>
+
+</div></article>

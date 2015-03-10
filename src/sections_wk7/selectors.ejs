@@ -1,0 +1,156 @@
+<article class='slide'><div>
+  <h1>Let's get back to it. <br/>We left off discussing <mark>css selectors</mark></h1>
+</div></article>
+
+<article><div>
+  <h2>A css document is grouped into blocks of code called <mark>rulesets</mark>.</h2>
+  <p>Here's the syntax for a ruleset.</p>
+<pre class='major language-css'><code>
+selector{
+  property: value;
+  property: value;
+}
+</code></pre>
+<p>...and here's what that looks like with actual css.</p>
+<pre class='major language-css'><code>
+h1{
+  font-size: 11px;
+  color: #000;
+}
+</code></pre>
+
+<p>In this example <code>h1</code> is the selector. 
+<br/>Contained in the brackets <code>{}</code> are style properties and values.
+<br/>Properties are separated from values with a colon. Each property/value pair ends with a semicolon.
+<br/>This ruleset will apply a font size of 11px and a black text color to every <code>h1</code> element on the page.
+</p>
+
+</div></article>
+
+<article class='minor info'><div>
+  <p><i class="fa fa-info-circle"></i>
+  The snippet for a css ruleset is <mark>_rule</mark></p>
+</div></article>
+
+<article><div>
+  <h2>Today we'll cover 4 types of css selectors.</h2>
+  <ol>
+    <li>The <a href='http://www.w3schools.com/cssref/sel_element.asp'>element selector</a></li>
+    <li>The <a href='http://www.w3schools.com/cssref/sel_class.asp'>class selector</a></li>
+    <li><a href='http://www.w3schools.com/cssref/sel_element_element.asp'>Nested selectors</a></li>
+    <li><a href='http://www.w3schools.com/cssref/sel_element_comma.asp'>Selector lists</a></li>
+  </ol>
+  <a class='button' href='http://www.w3schools.com/cssref/css_selectors.asp'>Full list of available selectors</a>
+</div></article>
+
+<article><div>
+  <h4>1. The Element Selector</h4>
+  <p>Selects elements based on their html tag names.</p>
+<pre class='language-markup'><code>
+  &lt;h1&gt;...&lt;/h1&gt;
+  &lt;div&gt;...&lt;/div&gt;
+</code></pre>
+
+<pre class='language-css'><code>
+  /* selects all h1 elements */
+  h1{
+    ...
+  }
+
+  /* selects all div elements */
+  div{
+    ...
+  }
+</code></pre>
+
+</div></article>
+
+<article><div>
+  <h4>2. The Class Selector</h4>
+  <p>Matches elements based on their <em>class(es)</em>. <strong>Unlike html tags, there are no pre-defined classes in css.</strong></p>
+  <p>The class selector syntax is a period before the class name.</p>
+  <h6>Example of the class selector syntax</h6>
+<pre class='major language-css'><code>
+.example{
+  color: red;
+}
+</code></pre>
+
+<pre class='language-markup'><code>
+&lt;div class='major'&gt;...&lt;/div&gt;
+&lt;div class='minor'&gt;...&lt;/div&gt;
+</code></pre>
+<pre class='language-css'><code>
+/* selects all elements with a 'major' class */
+.major{
+  background-color: #c30;
+}
+
+/* selects all elements with a 'minor' class */
+.minor{
+  background-color: #f90;
+}
+</code></pre>
+
+</div></article>
+
+<article><div>
+  <h4>3. Nested Selectors</h4>
+  <p>The convention for selecting elements that are nested inside other elements.</p>
+  <p>The syntax for specifying nested selectors is to separate each element with a space.</p>
+  <p>Any number of ancestors can be specified.</p>
+  <p><strong>Note</strong> that the rules are applied to the last element in the list and not to the chain ancestors.</p>
+<pre class='major language-css'><code>
+ancestor ancestor element{
+  color: red;
+}
+</code></pre>
+
+ <pre class='language-markup'><code>
+  &lt;footer&gt;
+    &lt;section class='major'&gt;
+      &lt;div&gt;...&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/footer&gt;
+</code></pre>
+
+<pre class='language-css'><code>
+  /* selects all divs nested inside a footer tag */
+  footer div{
+    ...
+  }
+
+  /* selects all divs nested inside a footer tag */
+  footer div{
+    ...
+  }
+
+  /* selects all divs nested inside section tags nested inside a footer tag */
+  footer section div{
+    ...
+  }
+
+  /* nesting is not limited to element selectors. Class selectors can be intermingled.*/
+  footer .major div{
+    ...
+  }
+</code></pre> 
+</div></article>
+
+<article><div>
+  <h4>4. Selector Lists</h4>
+  <p>The convention for applying rules to multiple selectors.</p>
+  <p>The syntax for listing selectors is to separate each element with a comma.</p>
+  <p>In the example below, the css styles would be applied to every <code>h1</code>, <code>h2</code> and <code>p</code> as well as any tag with a <code>major</code> class.</p>
+<pre class='major language-css'><code>
+h1, h2, .major, p{
+  color: red;
+}
+</code></pre>
+
+</div></article>
+
+<article class='info'><div>
+  <h3>CSS Selector Activity</h3>
+  <p>In this week's <code>ci-template</code> folder, open <code>excercises/css-selectors/index.html</code> in a browser.</p>
+</div></article>

@@ -90,6 +90,14 @@
   text-align: center;
 }
 
+.horizontal-box{
+  #container > .hBox();
+  > *{
+    #util > .square(@baseUnit * 10);
+    background-color: @AQUA;
+  }
+}
+
 // basic scaffolding & reset
 // ---------------------------
 *,*:before,*:after{
@@ -190,18 +198,15 @@ blockquote{
     font-size: 0.5em;
   }
 }
-h1,h2{
-  text-align: center;
-  #center > .xy();
-  span{
-    display: block;
-  }
-}
 h3,h4{
   max-width: 75%
 }
-p{
+p,ol,ul{
   max-width: 60%;
+  code{
+    background-color: @NEWSPRINT;
+    color: @RED;
+  }
 }
 
 pre{
@@ -364,10 +369,19 @@ input[type='submit']{
       font-style: normal;
       color: @SLATE;
     }
+    p mark{
+      background-color: @NEWSPRINT;
+    }
   }
   .info(){
     background-color: @BLUE;
     color: @WHITE;
+    mark,span,a{
+      color: @SLATE;
+    }
+    span{
+      font-size: 0.75em;
+    }
   }
   .bold{
     background-color: @YELLOW;
@@ -388,6 +402,7 @@ input[type='submit']{
     }
     code,a{
       color: @PEE;
+      background-color:transparent;
     }
   }
   .image(@url){
@@ -399,6 +414,15 @@ input[type='submit']{
 
 // sections : color schemes
 //------------------------------------
+article.slide{
+  h1,h2{
+    text-align: center;
+    #center > .xy();
+    span{
+      display: block;
+    }
+  }
+}
 article.emphasis{
   #section > .emphasis();
 }
@@ -414,34 +438,30 @@ article.bold{
 article.digress{
   #section > .digress();
 }
-
 article.spiderman{
   #section > .image('../img/spider-man.png');
 }
-
 article.radio{
   #section > .image('../img/radio.png');
 }
-
 article.beyonce{
   #section > .image('../img/beyonce.jpeg');
 }
-
 article.origin > div{
   > * {
     width: 75%;
   }
 }
-
+article.frustrating{
+  #section > .image('../img/getting-setup.gif');
+}
 article.box-model > div{
   #section > .image('../img/box-model.gif');
   background-size: contain;
 }
-
 article.big-idea{
   font-size: @baseUnit * 10;
 }
-
 article.radio-example{
   color: @SLATE;
   font-weight: bold;
@@ -449,7 +469,31 @@ article.radio-example{
     margin-left: @baseUnit;
   }
 }
-
 article.worldbuilding{
   #section > .image('../img/worldbuilding.jpg');
+}
+article.box-demo{
+  .horizontal-box > *{
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+  .horizontal-box{
+    &.dimensions > *{
+      width: 160px;
+      height: 160px;
+    }
+    &.padding > *{
+      padding: 20px;
+    }
+    &.border > *{
+      border: 10px solid black;
+    }
+    &.margin{
+      border: 3px solid black;
+      & > *{
+        margin: 20px;
+      }
+    } 
+  }
 }

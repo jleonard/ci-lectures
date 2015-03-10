@@ -1,8 +1,32 @@
 {
+  "setup": {
+    "title" : "setup"
+  },
+  "intro": {
+    "title" : "Intro"
+  },
   "recap": {
     "title" : "Recap"
   },
-  "naming": {
-    "title" : "Naming"
+  "reset": {
+    "title" : "Reset"
+  },
+  "selectors": {
+    "title" : "selectors"
+  },
+  "specificity": {
+    "title" : "specificity"
+  },
+  "boxes": {
+    "title" : "boxes"
+  },
+  "bootstrap": {
+    "title" : "bootstrap"
+  },
+  "assignment": {
+    "title" : "assignment"
+  },
+  "links": {
+    "title" : "links"
   }
 }

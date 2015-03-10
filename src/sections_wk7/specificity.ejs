@@ -1,0 +1,77 @@
+<article><div>
+  <h2>css specificity</h2>
+  <p>The <em>cascade</em> in cascading style sheets refers to the way css priorizes rules.</p>
+
+  <p>In the example below every css ruleset applies to the div. CSS specificity rules weigh the various rules in each ruleset based on the specificity of the selector.</p>
+<pre class='language-markup'><code>
+&lt;body&gt;
+  &lt;div class='major button'&gt;...&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre class='language-css'><code>
+  body{
+    background-color: green;
+  }
+
+  div{
+    background-color: black;
+  }
+
+  .button{
+    background-color: red;
+  }
+
+  .major{
+    background-color: green;
+  }
+
+  .major.button{
+    background-color: orange;
+  }
+</code></pre>
+
+<ol>
+    <li>The <code>background-color</code> defined on the <code>body</code> is inherited by the div because the div is nested inside. Unless a more specific selector is applied, this rule is applied to the div.</li>
+    <li>The <code>div</code> selector is the next least specific. It overrides the background-color on the <code>body</code> ruleset because it is more specific.</li>
+    <li>The background-color in the <code>.major.button</code> rule-set is applied to the element because it is the most specific.</li>
+    <li>The <code>.button</code> and <code>.major</code> selectors are equally specific. In this example <code>.major</code> takes priority over <code>.button</code> because it was declared last.</li>
+  </ol>
+
+<h5>Nesting &amp; Specificity</h5>
+  <p>In the example below, all of the rulesets apply to the <code>div</code> element.</p>
+<pre class='language-markup'><code>
+  &lt;footer&gt;
+    &lt;section&gt;
+      &lt;div&gt;...&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/footer&gt;
+</code></pre>
+
+<pre class='language-css'><code>
+  div{
+    font-size: 10px;
+    background-color: red;
+  }
+
+  footer div{
+    font-size: 12px;
+    background-color: orange;
+  }
+
+  footer section div{
+    background-color: black;
+  }
+</code></pre>
+
+<ol>
+    <li>The element selector, <code>div</code> is the least specific.</li>
+    <li>The <code>footer div</code> selector is more specific. Its rules for <code>font-size</code> and <code>background-color</code> are prioritized over the <code>div</code> selector.</li>
+    <li>The <code>footer section div</code> selector is the most specific. Its rule for <code>background-color</code> would be applied to the element. Since there's no <code>font-size</code> rule in this ruleset, the <code>font-size</code> declared in <code>footer div</code> would be applied to the element.</li>
+  </ol>
+
+</div></article>
+
+<article class='info'><div>
+  <h3>CSS Specificity Activity</h3>
+  <p>In this week's <code>ci-template</code> folder, open <code>excercises/css-specificity/index.html</code> in a browser and navigate to that folder in Sublime Text.</p>
+</div></article>
